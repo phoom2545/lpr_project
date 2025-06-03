@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+* {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  background-color: rgb(244, 244, 237);
+}
+
+.title {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+.realtime-monitor {
+  margin-top: 30px;
+  /* Align Picture to be in the middle */
+  display: flex;
+  justify-content: center;
+}
+
+.ResultContainer {
+  display: flex;
+  justify-content: center; 
+  /* When using mobile device it will wrap อันที่เกินไปอีกแถว */
+  flex-wrap: wrap;
+  padding: 0 10px;
+}
+
+.Result-Detected {
+  display: flex;
+  text-align: center;
+  font-size: 20px;
+  margin: 30px 0px;
+  /* When using mobile device it will wrap อันที่เกินไปอีกแถว */
+  /* flex-wrap: wrap; */
+}
+
+.Result-Detected-Detail-Name {  
+  background-color: rgb(178, 203, 235);
+  border: 0;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.Result-Detected-Detail-Value {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 0px 20px;
+}
