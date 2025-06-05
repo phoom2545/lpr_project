@@ -16,11 +16,11 @@ function Home() {
       </div>
       <div className="ResultContainer">
         <div className="Result-Detected">
-          <div className="Result-Detected-Detail-Name">Detection No</div>
+          <div className="Result-Detected-Detail-Name">License Number</div>
           <div className="Result-Detected-Detail-Value">ฒก8534</div>
         </div>
         <div className="Result-Detected">
-          <div className="Result-Detected-Detail-Name">Detection Province</div>
+          <div className="Result-Detected-Detail-Name">Province</div>
           <div className="Result-Detected-Detail-Value">กรุงเทพมหานคร</div>
         </div>
       </div>

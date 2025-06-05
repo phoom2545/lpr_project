@@ -24,30 +24,33 @@
 .ResultContainer {
   display: flex;
   justify-content: center; 
+  background-color: rgb(214, 222, 233);
+  padding: 10px 0px;
+  margin: 40px 20%;
+  border-radius: 20px;
+
   /* When using mobile device it will wrap อันที่เกินไปอีกแถว */
   flex-wrap: wrap;
-  padding: 0 10px;
 }
 
 .Result-Detected {
   display: flex;
   text-align: center;
   font-size: 20px;
-  margin: 30px 0px;
-  /* When using mobile device it will wrap อันที่เกินไปอีกแถว */
-  /* flex-wrap: wrap; */
+  margin: 30px 50px;
+  background-color: rgb(214, 222, 233);
 }
 
 .Result-Detected-Detail-Name {  
-  background-color: rgb(178, 203, 235);
+  background-color: rgb(153, 195, 250);
   border: 0;
-  border-radius: 10px;
-  padding: 10px;
+  border-radius: 10px 0px 0px 10px;
+  padding: 20px 10px;
 }
 
 .Result-Detected-Detail-Value {
   border: 0;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 0px 20px;
+  border-radius: 0px 10px 10px 0px;
+  padding: 20px 30px;
+  /* margin: 0px 20px; */
 }
