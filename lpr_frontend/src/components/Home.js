@@ -1,15 +1,17 @@
 import "./Home.css";
 import React from "react";
-import test_pic from "./test_pic2.jpg";
 
 function Home() {
+
+
   return (
     <div className="HomePage">
       <div className="title">Detection System</div>
       <div className="realtime-monitor">
         <img
-          // src="http://127.0.0.1:5001/video_feed"
-          src={test_pic}
+          // src="http://127.0.0.1:5001/get_image"
+          src="http://127.0.0.1:5001/get_video_stream"
+          // src={test_pic}
           alt="Live Video Feed"
           width="45%"
         />
