@@ -2,7 +2,7 @@ import cv2
 from ultralytics import YOLO
 from functions.lpr_help_func import data_province, get_thai_character
 
-source_image = 'MyPhoto/61748317_440640020083064_1234764021987540992_n.jpg'
+source_image = 'MyPhoto/test2.jpg'
 
 plate_detection_model = YOLO('model/license_plate.pt')      # Read license plate from the images or video
 read_data_model = YOLO('model/data_plate.pt')                  # Read info inside license plate
@@ -27,8 +27,10 @@ def read_license_info(source_path):
         # For each license plate detected (expecting to get only one)
         for plate_box in pd_result.boxes:
 
+            print(plate_box.xyxy)
+
             # Map the float to int
-            x1,y1,x2,y2 = map(int,plate_box.xyxy[0])  # Put 0 to get the first detected object
+            x1,y1,x2,y2 = map(int,plate_box.xyxy[0])  # Put 0 to get inside the inside list. Because without [0], it is a nested list
             cv2.rectangle(source,(x1,y1),(x2,y2),(0,255,0),1) # No need to draw in real usecase
         
             # Crop the image on region of interest
@@ -46,6 +48,8 @@ def read_license_info(source_path):
                 for plate_data_box in rd_result.boxes:
                     
                     px1,py1,px2,py2 = map(int,plate_data_box.xyxy[0])
+
+                    
 
                     # Map the coordiante from cropped image detection to the 'source' image
                     # x1,y1 is the coordinate from the left-side edge to the most left. So, to find the actual coordinate for each data, just add detected px1 with x1

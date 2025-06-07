@@ -15,8 +15,6 @@ frame_path = 'MyPhoto/test2.jpg'
 # source_path = 'MyVideo/video1.MOV'
 
 
-
-
 @app.route('/get_image')
 def get_image():
     frame = cv2.imread(frame_path) # Raw pixel data which is numpy array with shape:(height, width, channels) in BGR color format
