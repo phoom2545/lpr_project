@@ -1,4 +1,4 @@
-import "./Home.css";
+import "./detection.css";
 import React, { useState, useEffect } from "react";
 
 function Home() {
@@ -42,7 +42,7 @@ function Home() {
 
   return (
     <div className="HomePage">
-      <div className="title">Detection System</div>
+      <div className="title">Home Page</div>
       <div className="realtime-monitor">
         <img
           src= {image_URL}
