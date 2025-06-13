@@ -9,20 +9,19 @@ app.json.ensure_ascii = False
 
 # API ENDPOINTS
 
-@app.route('/check_no', methods=["POST"])
-def check_no():
+@app.route('/check_no', methods=["GET"])
+def check_activation_from_license_no():
 
     try:
         # Get data from 
         data = request.get_json()
         license_no = data['license_no']
-        # print(data['license_no'])
 
         conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
         cursor.execute(
             '''
-            SELECT license_number FROM registered_cars
+            SELECT license_number, status FROM registered_cars
             WHERE license_number = ?
             '''
             ,(license_no,) # Put , (comma) to treat it as a tuple because Sqlite wants a tuple as a parameter. So, even a single parameter is passed, make it a tuple
@@ -32,10 +31,10 @@ def check_no():
         conn.close()
 
         # from cursor.fetchone() we will get a tuple, we only want the first one
-        result = result[0]
+        status = result[1]
         
         return jsonify ({"message" : "Success",
-                         "data" : result}), 201
+                         "license_status" : status}), 200
     
     # Get into this 
     except TypeError:
