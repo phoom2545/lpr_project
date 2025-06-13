@@ -13,6 +13,8 @@ def register_car():
     try:
         conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
+        
+        # Exceute SQL command
         cursor.execute("""
             INSERT INTO registered_cars(license_number,license_province,name,phone,email,status,location,current_package_detail,package_start_date,package_end_date)
             VALUES (?,?,?,?,?,?,?,?,?,?)
@@ -29,9 +31,15 @@ def register_car():
             data['package_start_date'],
             data['package_end_date']
         ))
+
+        # Saves and Confirms all changes made to the database (Need for INSERT, UPDATE, DELETE, CREATE TABLE, DROP TABLE) but not for SELECT
         conn.commit()
-        conn.close()
-        return jsonify ({"message":"Car Registered Successfully!!!"}),201
+
+        # Close database connection and frees up system resources
+        conn.close() 
+
+        
+        return jsonify ({"message":"Car Registered Successfully!!!"}),201 # Success for "POST"
     except Exception as e:
         return jsonify({"error": str(e)}), 400
     
