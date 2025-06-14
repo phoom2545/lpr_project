@@ -36,7 +36,7 @@ def check_activation_from_license_no():
         return jsonify ({"message" : "Success",
                          "license_status" : status}), 200
     
-    # Get into this 
+    # Check if the error is typeerror, this will be shown when the cursor can't find the license_number wanted.
     except TypeError:
         return jsonify({"type_error_message": "The license number inserted can't be found"}) , 404
         

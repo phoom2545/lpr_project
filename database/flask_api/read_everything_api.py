@@ -4,7 +4,7 @@ import sqlite3
 app = Flask(__name__)
 DB_PATH = '../lite_lprDB.db'
 
-@app.route('/register_car_get', methods=["GET"])
+@app.route('/register_get', methods=["GET"])
 def register_car():
 
     try:

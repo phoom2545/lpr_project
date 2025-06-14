@@ -37,7 +37,7 @@ def check_no():
         return jsonify ({"message" : "Success",
                          "data" : result}), 201
     
-    # Get into this 
+    # Check if the error is typeerror, this will be shown when the cursor can't find the license_number wanted.
     except TypeError:
         return jsonify({"type_error_message": "The license number inserted can't be found"}) , 404
         
