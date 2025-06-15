@@ -4,8 +4,8 @@ import sqlite3
 app = Flask(__name__)
 DB_PATH = '../lite_lprDB.db'
 
-@app.route('/register_insert', methods=["POST"])
-def register_insert():
+@app.route('/log_insert', methods=["POST"])
+def log_insert():
     data = request.get_json()
     print("THIS is JSON: ",data)
     print("THIS is JSON license no.: ",data['license_number'])
@@ -16,7 +16,7 @@ def register_insert():
         
         # Exceute SQL command
         cursor.execute("""
-            INSERT INTO registered_cars(license_number,license_province,name,phone,email,status,location,current_package_detail,package_start_date,package_end_date)
+            INSERT INTO registered_cars(id,license_no,action_type,enter_or_exit_timestamp,image_video,location,registration_status)
             VALUES (?,?,?,?,?,?,?,?,?,?)
             """
             ,(
@@ -44,5 +44,5 @@ def register_insert():
         return jsonify({"error": str(e)}), 400
     
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5003, debug=True)
+    app.run(host='0.0.0.0', port=5002, debug=True)
 
